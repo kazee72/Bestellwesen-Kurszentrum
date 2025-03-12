@@ -1,2 +1,2 @@
 # Bestellwesen-Kurszentrum
-System for material orders for our intern courses.
+System for material orders for our internal courses.
