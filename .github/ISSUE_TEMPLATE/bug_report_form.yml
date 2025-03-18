@@ -49,7 +49,6 @@ body:
         - Chrome
         - Safari
         - Microsoft Edge
-        - Safari
         - Internet Explorer
         - Tor
   - type: textarea
