@@ -12,5 +12,5 @@ https://flask-migrate.readthedocs.io/en/latest/
 if we change the models.py we need to tell sqlalchemy to migrate and upgrade the database to be in sync with the model.
 
 
-> flask db migrate
+> flask db migrate  
 > flask db upgrade
