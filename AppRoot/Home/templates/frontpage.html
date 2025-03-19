@@ -19,7 +19,7 @@
             margin: 0;
             padding: 0;
             position: relative; /* Für das Bild-Positionierung */
-            background-image: url(schlosslenzburg.jpg); /* Hintergrundbild hier definieren */
+            background-image: url({{ url_for("home_bp.static",filename="schlosslenzburg.jpg") }}); /* Hintergrundbild hier definieren */
             background-size: cover; /* Bild anpassen, um den gesamten Bereich zu füllen */
             background-position: center; /* Bild zentrieren */
             background-repeat: no-repeat; /* Bild nicht wiederholen */
@@ -72,7 +72,7 @@
 </head>
 <body>
     <!-- Bild in der rechten oberen Ecke -->
-    <img src={{ url_for('static',filename="santiss.png") }} alt="Bild" class="top-right-image">
+    <img src={{ url_for('home_bp.static',filename="santiss.png") }} alt="Bild" class="top-right-image">
     
     <h2>Login-Seite für Kursleiter Santis Training AG</h2>
    
