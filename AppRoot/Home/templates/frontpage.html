@@ -4,62 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
     <style>
-        /* Hintergrundfarbe der Seite */
+        /* Für das Bild in der rechten oberen Ecke */
+        .top-right-image {
+            position: absolute;
+            top: 10px;    /* Abstand von oben */
+            right: 10px;  /* Abstand von rechts */
+        }
+
+        /* Zusätzliche Styles für das Layout */
         body {
-            background-color: black; /* Schwarzer Hintergrund */
-            color: white;            /* Weiße Schriftfarbe */
-            font-family: Arial, sans-serif; /* Schriftart */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative; /* Für das Bild-Positionierung */
+            background-image: url(schlosslenzburg.jpg); /* Hintergrundbild hier definieren */
+            background-size: cover; /* Bild anpassen, um den gesamten Bereich zu füllen */
+            background-position: center; /* Bild zentrieren */
+            background-repeat: no-repeat; /* Bild nicht wiederholen */
+            height: 100vh; /* Höhe auf 100% der Ansichtshöhe setzen */
         }
 
-        /* Stil für das Formular */
-        .login-container {
-            background-color: white; /* Weißer Kasten */
-            color: black;            /* Schwarze Schriftfarbe im Kasten */
-            padding: 20px;          /* Innenabstand */
-            border-radius: 8px;     /* Abgerundete Ecken */
-            width: 300px;           /* Breite des Kastens */
-            margin: 100px auto;     /* Zentrierung des Kastens */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt */
+        h2 {
+            color: #000000;
         }
 
-        /* Stil für die Schaltfläche */
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            max-width: 300px;
+            display: block;
+        }
+
         input[type="submit"] {
-            background-color: orange; /* Orange Hintergrundfarbe */
-            color: white;             /* Weiße Schriftfarbe */
-            border: none;             /* Kein Rahmen */
-            padding: 10px;           /* Innenabstand */
-            border-radius: 5px;      /* Abgerundete Ecken */
-            cursor: pointer;          /* Zeiger-Cursor */
+            padding: 10px 20px;
+            margin-top: auto;
+            background-color: #07F74F;
+            color: rgb(0, 0, 0);
+            border: none;
+            cursor: pointer;
+            text-align: left;
         }
 
-        /* Stil für die Schaltfläche bei Hover */
         input[type="submit"]:hover {
-            background-color: darkorange; /* Dunkelorange bei Hover */
+            background-color: #00000000;
         }
 
-        /* CSS für die Bildpositionierung */
-        .logo {
-            position: absolute; /* Korrektur des Schreibfehlers */
-            right: 50px;       /* Abstand vom rechten Rand */
-            top: 120px;        /* Abstand vom oberen Rand */
+        .forgot-password {
+            margin-top: -86px;
+            text-align: left;
+            display: block; /* Damit der Link als Block angezeigt wird */
+            color: #007BFF; /* Linkfarbe */
+            text-decoration: none; /* Unterstreichung entfernen */
         }
+
+        .forgot-password:hover {
+            text-decoration: underline; /* Unterstreichung beim Hover */
+        }
+        
     </style>
 </head>
 <body>
-    <img src="santis_training_verein_logo.jpg" class="logo" alt="Santis Training AG Logo"> <!-- Bild innerhalb des Body-Tags -->
+    <!-- Bild in der rechten oberen Ecke -->
+    <img src="santiss.png" alt="Bild" class="top-right-image">
+    
+    <h2>Login-Seite für Kursleiter Santis Training AG</h2>
+   
+    
+    <form method="POST" action="/login">
+        <label for="username">Benutzername:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Passwort:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Einloggen"><br><br>
+        <a href="/forgot-password" class="forgot-password">Passwort vergessen</a> <!-- Hier der Link -->
+    </form>
 
-    <div class="login-container"> <!-- Container für das Formular -->
-        <h2>Login-Seite für Kursleiter Santis Training AG</h2>
-        <h3>Dies ist eine Testseite, die der Hammer aussieht</h3>
-        <h4
-        <form method="POST" action="/login">
-            <label for="username">Benutzername:</label><br>
-            <input type="text" id="username" name="username" required><br><br>
-            <label for="password">Passwort:</label><br>
-            <input type="password" id="password" name="password" required><br><br>
-            <input type="submit" value="Einloggen">
-        </form>
-    </div>
 </body>
 </html>
