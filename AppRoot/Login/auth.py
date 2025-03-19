@@ -6,14 +6,13 @@ from werkzeug.security import generate_password_hash
 from .. import app
 from sqlalchemy import exc
 from . import models
+from .. import database
 
 def login():
     #login logic here
     return "here is login logic"
 
 def signUp():
-    #signUp logic here
-
     username = request.form.get('username')
     password = request.form.get('password')
     repeatPassword = request.form.get('repeatPassword')
@@ -21,23 +20,23 @@ def signUp():
     user = models.User.query.filter_by(username=username).first()
     if user:
        flash("this username is already taken")
-       return redirect(url_for('auth.login'))
+       return redirect(url_for('login_bp.signUpPage'))
     else:
         if password == repeatPassword and len(password) > 10:
             newUser = models.User(username=username,
                                   password=generate_password_hash(password,method="sha256"))
-            with app.context():
-                db.session.add(newUser)
+            with app.app.app_context():
+                database.db.session.add(newUser)
                 try:
-                    db.session.commit()
+                    database.db.session.commit()
                 except exc.IntegrityError as e:
-                    logger.info("User already exist in db:"+ str(e))
+                    app.logger.info("User already exist in db:"+ str(e))
                     flash("Error adding user!, please contact your sysadmin")
-                    db.session.rollback()
+                    database.db.session.rollback()
                 else:
                     flash("User successfull added")
         else:
            flash("password is invalid")
-           return redirect(url_for('auth.login'))
+           return redirect(url_for('login_bp.signUpPage'))
 
         return "some response"

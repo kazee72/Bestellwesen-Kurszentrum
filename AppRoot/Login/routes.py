@@ -14,8 +14,9 @@ def loginPage():
     elif request.method == 'GET':
         return render_template("LoginPage.html")
 
-@login_bp.route("/signUp",methods = ['POST'])
+@login_bp.route("/signUp",methods = ['POST','GET']) #remove the get here!!!
 def signUpPage():
     if request.method == 'POST':
-        return redirect(url_for("auth.signUp"))
-    return render_template("SignUpPage.html")
+        return auth.signUp()
+    if request.method == 'GET':
+        return render_template("SignUpPage.html")

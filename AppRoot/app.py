@@ -18,13 +18,14 @@ logger = logging.getLogger(__name__)
 config = dotenv_values(".env")
 
 app = Flask("bööö")
+
 try:
     app.secret_key = config["FLASK_SECRET_KEY"]
 except Exception as e:
     raise ValueError("FLASK_SECRET_KEY is not defined in the .env",e)  
 
 app.config["SQLALCHEMY_DATABASE_URI"] = f'sqlite:///{app.root_path}/db.sqlite'
-
+database.db.init_app(app)
 
 
 migrate = Migrate(app,database.db)
