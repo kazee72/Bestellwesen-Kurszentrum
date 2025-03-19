@@ -5,10 +5,14 @@ Start a python interactive shell:
 > python  
 Run the following to generate a key:  
 > import secrets  
-> secrets.token_hex(64)  
+> secrets.token_hex(64) 
+
 copy the token into:  
+
 > AppRoot/.env    
+
 like this:
+
 > FLASK_SECRET_KEY=insertKeyHere
 
 # Initialize a db  
