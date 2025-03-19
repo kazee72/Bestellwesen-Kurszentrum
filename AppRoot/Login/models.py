@@ -1,8 +1,10 @@
-#here We define the structure of the infos in the db using sqlitealchemy
-from ..app import db
-class User(db.Model):
-    uid = db.Column(db.Integer,primary_key=True)
-    email = db.Column(db.String(100),unique=True)
-    password = db.Column(db.String(100))
-    name = db.Column(db.String(100))
-    prename = db.Column(db.String(100))
+#here We define the structure of the infos in the userDb using sqlitealchemy
+from ..database import db as userDb
+
+class User(userDb.Model):
+    uid = userDb.Column(userDb.Integer,primary_key=True)
+    email = userDb.Column(userDb.String(100))
+    password = userDb.Column(userDb.String(100))
+    username = userDb.Column(userDb.String(100),unique=True)
+    firstname = userDb.Column(userDb.String(100))
+    lastname = userDb.Column(userDb.String(100))

@@ -8,6 +8,9 @@ from .Home.routes import home_bp
 from .Dashboard.routes import dashboard_bp
 from .Login.routes import login_bp
 
+from . import database
+from .Login import models
+
 import logging
 logging.basicConfig(stream=sys.stdout,level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -22,11 +25,9 @@ except Exception as e:
 
 app.config["SQLALCHEMY_DATABASE_URI"] = f'sqlite:///{app.root_path}/db.sqlite'
 
-from . import database
-db = database.initDb(app)
-from .Login import models
 
-migrate = Migrate(app,db)
+
+migrate = Migrate(app,database.db)
 
 app.register_blueprint(home_bp,url_prefix='/',name="home-red")
 app.register_blueprint(home_bp,url_prefix='/home')

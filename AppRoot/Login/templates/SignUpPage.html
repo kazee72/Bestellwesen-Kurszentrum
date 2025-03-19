@@ -1,1 +1,22 @@
-SignUpPage goes here...
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+</head>
+<body>
+    <h2>SignUp für Kursleiter Santis Training AG</h2>
+    <h3>Please register</h3>
+    
+    <form method="POST" action="/login">
+        <label for="username">Benutzername:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Passwort:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="repeatPassword">Passwort:</label><br>
+        <input type="password" id="repeatPassword" name="repeatPassword" required><br><br>
+	<input type="submit" value="Einloggen">
+    </form>
+</body>
+</html>
