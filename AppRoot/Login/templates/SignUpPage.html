@@ -6,6 +6,10 @@
     <title>SignUp</title>
 </head>
 <body>
+    {% for msg in get_flashed_messages() %}
+    <h1>{{ msg }}</h1>
+    {% endfor %}
+
     <h2>SignUp für Kursleiter Santis Training AG</h2>
     <h3>Please register</h3>
     
@@ -16,7 +20,7 @@
         <input type="password" id="password" name="password" required><br><br>
         <label for="repeatPassword">Passwort:</label><br>
         <input type="password" id="repeatPassword" name="repeatPassword" required><br><br>
-	<input type="submit" value="Einloggen">
+	<input type="submit" value="Register">
     </form>
 </body>
 </html>

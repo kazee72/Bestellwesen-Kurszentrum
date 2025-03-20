@@ -1,12 +1,9 @@
 from flask import redirect, request, flash, url_for
 from werkzeug.security import generate_password_hash
-#from ..app import app
-#from ..app import logger
-#from ..app import db
-from .. import app
+from AppRoot import app
 from sqlalchemy import exc
-from . import models
-from .. import database
+from AppRoot.Login import models
+from AppRoot import database
 
 def login():
     #login logic here
@@ -24,7 +21,7 @@ def signUp():
     else:
         if password == repeatPassword and len(password) > 10:
             newUser = models.User(username=username,
-                                  password=generate_password_hash(password,method="sha256"))
+                                  password=generate_password_hash(password,method="scrypt"))
             with app.app.app_context():
                 database.db.session.add(newUser)
                 try:

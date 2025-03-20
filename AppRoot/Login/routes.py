@@ -1,6 +1,6 @@
 from flask import Blueprint, request, redirect, url_for
 from flask import render_template
-from . import auth
+from AppRoot.Login import auth
 
 login_bp = Blueprint('login_bp',
                      __name__,

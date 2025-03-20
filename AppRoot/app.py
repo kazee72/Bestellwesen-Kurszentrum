@@ -4,9 +4,9 @@ from dotenv import dotenv_values, load_dotenv
 from flask import Flask
 from flask_migrate import Migrate
 
-from .Home.routes import home_bp
-from .Dashboard.routes import dashboard_bp
-from .Login.routes import login_bp
+from AppRoot.Home.routes import home_bp
+from AppRoot.Dashboard.routes import dashboard_bp
+from AppRoot.Login.routes import login_bp
 
 from . import database
 from .Login import models
