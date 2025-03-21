@@ -1,15 +1,23 @@
 from flask import redirect, request, flash, url_for
-from werkzeug.security import generate_password_hash
-#from ..app import app
-#from ..app import logger
-#from ..app import db
-from .. import app
+from werkzeug.security import check_password_hash, generate_password_hash
+from AppRoot import app
 from sqlalchemy import exc
-from . import models
-from .. import database
+from AppRoot.Login import models
+from AppRoot import database
+from AppRoot import models
 
 def login():
     #login logic here
+    username = request.form.get('username')
+    password = request.form.get('password')
+
+    userDb = models.User.filter_by(username).first()
+    if userDb:
+        if check_password_hash(userDb.password,password):
+            session['id'] = userDb.uid #here we store a encrypted session cookie
+            
+        
+
     return "here is login logic"
 
 def signUp():
@@ -24,7 +32,7 @@ def signUp():
     else:
         if password == repeatPassword and len(password) > 10:
             newUser = models.User(username=username,
-                                  password=generate_password_hash(password,method="sha256"))
+                                  password=generate_password_hash(password,method="scrypt"))
             with app.app.app_context():
                 database.db.session.add(newUser)
                 try:
