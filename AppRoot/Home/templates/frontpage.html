@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/frontpage.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}"/>
     <title>Login</title>
 </head>
 <style>
@@ -13,19 +13,17 @@
 </style>
 <body>
     {% include 'NavBar.html' %}
-    <!-- Bild in der rechten oberen Ecke -->
-    <img src={{ url_for('home_bp.static',filename="santislogo.png") }} alt="Bild" class="top-right-image">
-    
-    <h2>Login-Seite für Kursleiter Santis Training AG</h2>
+    <div class="content">
+        <h2>Login-Seite für Kursleiter Santis Training AG</h2>
    
-    
-    <form method="POST" action="/login">
-        <label for="username">Benutzername:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Passwort:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-        <input type="submit" value="Einloggen"><br><br>
-        <a href="/forgot-password" class="forgot-password">Passwort vergessen</a> <!-- Hier der Link -->
-    </form>
+        <form method="POST" action="/login">
+            <label for="username">Benutzername:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Passwort:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Einloggen"><br><br>
+            <a href="/forgot-password" class="forgot-password">Passwort vergessen</a> <!-- Hier der Link -->
+        </form>
+    </div>
 </body>
 </html>
