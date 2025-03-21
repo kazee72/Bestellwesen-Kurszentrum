@@ -1,4 +1,5 @@
 from flask import redirect, request, flash, url_for
+import flask
 from werkzeug.security import check_password_hash, generate_password_hash
 from AppRoot import app
 from sqlalchemy import exc
@@ -10,11 +11,11 @@ def login():
     username = request.form.get('username')
     password = request.form.get('password')
 
-    userDb = models.User.filter_by(username).first()
+    userDb = models.User.query.filter_by(username=username).first()
     if userDb:
         if check_password_hash(userDb.password,password):
-            session['id'] = userDb.uid #here we store a encrypted session cookie
-            
+            flask.session['id'] = userDb.uid #here we store a encrypted session cookie
+            flask.session['username'] = username           
         
 
     return "here is login logic"

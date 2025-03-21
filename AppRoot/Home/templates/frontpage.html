@@ -13,6 +13,7 @@
 </style>
 <body>
     {% include 'NavBar.html' %}
+        <h3> this user is logged in as {{username}}</h3>
     <!-- Bild in der rechten oberen Ecke -->
     <img src={{ url_for('home_bp.static',filename="santislogo.png") }} alt="Bild" class="top-right-image">
     
