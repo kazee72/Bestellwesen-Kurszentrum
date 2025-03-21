@@ -4,7 +4,6 @@ from AppRoot import app
 from sqlalchemy import exc
 from AppRoot.Login import models
 from AppRoot import database
-from AppRoot import models
 
 def login():
     #login logic here
