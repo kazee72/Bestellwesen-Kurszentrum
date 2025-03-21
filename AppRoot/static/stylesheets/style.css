@@ -1,0 +1,103 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Für das Bild-Positionierung */
+    background-size: cover; /* Bild anpassen, um den gesamten Bereich zu füllen */
+    background-position: center; /* Bild zentrieren */
+    background-repeat: no-repeat; /* Bild nicht wiederholen */
+    height: 100vh; /* Höhe auf 100% der Ansichtshöhe setzen */
+}
+
+.content {
+    margin-top: 120px;
+    padding: 20px;
+}
+
+h2 {
+    color: #000000;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 300px;
+    display: block;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    margin-top: auto;
+    background-color: #07F74F;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+input[type="submit"]:hover {
+    background-color: #00000000;
+}
+
+.forgot-password {
+    margin-top: -86px;
+    text-align: left;
+    display: block; /* Damit der Link als Block angezeigt wird */
+    color: #007BFF; /* Linkfarbe */
+    text-decoration: none; /* Unterstreichung entfernen */
+}
+
+.forgot-password:hover {
+    text-decoration: underline; /* Unterstreichung beim Hover */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #808080;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 60px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+nav ul li a:hover {
+    background-color: #5a5a5a;
+}
+
