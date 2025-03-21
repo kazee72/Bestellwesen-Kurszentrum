@@ -3,76 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/frontpage.css') }}"/>
     <title>Login</title>
-
-    <style>
-        /* Für das Bild in der rechten oberen Ecke */
-        .top-right-image {
-            position: absolute;
-            top: 10px;    /* Abstand von oben */
-            right: 10px;  /* Abstand von rechts */
-        }
-
-        /* Zusätzliche Styles für das Layout */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            position: relative; /* Für das Bild-Positionierung */
-            background-image: url({{ url_for("home_bp.static",filename="schlosslenzburg.jpg") }}); /* Hintergrundbild hier definieren */
-            background-size: cover; /* Bild anpassen, um den gesamten Bereich zu füllen */
-            background-position: center; /* Bild zentrieren */
-            background-repeat: no-repeat; /* Bild nicht wiederholen */
-            height: 100vh; /* Höhe auf 100% der Ansichtshöhe setzen */
-        }
-
-        h2 {
-            color: #000000;
-        }
-
-        form {
-            margin-top: 20px;
-        }
-
-        input[type="text"], input[type="password"] {
-            padding: 10px;
-            margin-bottom: 10px;
-            width: 100%;
-            max-width: 300px;
-            display: block;
-        }
-
-        input[type="submit"] {
-            padding: 10px 20px;
-            margin-top: auto;
-            background-color: #07F74F;
-            color: rgb(0, 0, 0);
-            border: none;
-            cursor: pointer;
-            text-align: left;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #00000000;
-        }
-
-        .forgot-password {
-            margin-top: -86px;
-            text-align: left;
-            display: block; /* Damit der Link als Block angezeigt wird */
-            color: #007BFF; /* Linkfarbe */
-            text-decoration: none; /* Unterstreichung entfernen */
-        }
-
-        .forgot-password:hover {
-            text-decoration: underline; /* Unterstreichung beim Hover */
-        }
-        
-    </style>
 </head>
+<style>
+    body {
+        background-image: url("{{ url_for('home_bp.static',filename='schlosslenzburg.jpg') }}");
+    }
+</style>
 <body>
+    {% include 'NavBar.html' %}
     <!-- Bild in der rechten oberen Ecke -->
-    <img src={{ url_for('home_bp.static',filename="santiss.png") }} alt="Bild" class="top-right-image">
+    <img src={{ url_for('home_bp.static',filename="santislogo.png") }} alt="Bild" class="top-right-image">
     
     <h2>Login-Seite für Kursleiter Santis Training AG</h2>
    
@@ -85,6 +27,5 @@
         <input type="submit" value="Einloggen"><br><br>
         <a href="/forgot-password" class="forgot-password">Passwort vergessen</a> <!-- Hier der Link -->
     </form>
-
 </body>
 </html>
