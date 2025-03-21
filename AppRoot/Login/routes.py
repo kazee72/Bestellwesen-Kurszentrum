@@ -1,5 +1,6 @@
 from flask import Blueprint, request, redirect, url_for
 from flask import render_template
+import flask
 from AppRoot.Login import auth
 
 login_bp = Blueprint('login_bp',
@@ -12,7 +13,11 @@ def loginPage():
     if request.method == 'POST':
         return auth.login()
     elif request.method == 'GET':
-        return render_template("LoginPage.html")
+        if 'username' in flask.session:
+            return render_template("LoginPage.html",
+                               username=flask.session['username'])
+        else:
+            return render_template("LoginPage.html")
 
 @login_bp.route("/signUp",methods = ['POST','GET']) #remove the get here!!!
 def signUpPage():
