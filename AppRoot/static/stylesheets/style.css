@@ -64,7 +64,7 @@ input[type="submit"]:hover {
     justify-content: space-between;
     background-color: #808080;
     padding: 10px 20px;
-    #position: fixed;
+    /*position: fixed;*/
     width: 100%;
     top: 0;
     left: 0;
@@ -108,7 +108,7 @@ nav ul li a {
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    height: 60px;
+    /*height: 60px;*/
 }
 
 nav ul li a:hover {

@@ -3,10 +3,10 @@
 
 <nav class="navbar">
     <ul>
-        <li><a href="/"><img src={{ url_for('static',filename="santislogo.png") }} alt="Bild" class="home"></a></li>
+        <li><a href="/"><img src={{ url_for('static',filename="santislogo.png") }} alt="Bild" class="home" height="30px"></a></li>
         <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/Login">Login</a></li>
-        <li><a href="/Order">Order</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/order">Order</a></li>
         {% if username is defined %}
             <li class="login">Logged in as {{ username }}</li>
         {% else %}
