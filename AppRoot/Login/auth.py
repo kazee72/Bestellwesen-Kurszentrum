@@ -16,7 +16,7 @@ def login():
         if check_password_hash(userDb.password,password):
             flask.session['id'] = userDb.uid #here we store a encrypted session cookie
             flask.session['username'] = username           
-        
+            flask.flash("user " + username +  " logged in")
 
     return "here is login logic"
 

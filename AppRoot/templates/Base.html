@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
     <body>
+        {% for msg in get_flashed_messages() %}
+            <h1>{{ msg }}</h1>
+        {% endfor %}
         {% include 'Navbar.html' %}
 
         {% block content %}
