@@ -1,5 +1,6 @@
 
 body {
+    background-image: url("{{ url_for('home_bp.static',filename='schlosslenzburg.jpg') }}");
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;

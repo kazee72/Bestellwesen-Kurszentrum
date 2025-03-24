@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+
     <body>
         {% for msg in get_flashed_messages() %}
             <h1>{{ msg }}</h1>
         {% endfor %}
-        {% include 'Navbar.html' %}
+        {% include 'NavBar.html' %}
 
         {% block content %}
 

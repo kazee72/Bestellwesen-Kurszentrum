@@ -27,7 +27,6 @@ except Exception as e:
 app.config["SQLALCHEMY_DATABASE_URI"] = f'sqlite:///{app.root_path}/db.sqlite'
 database.db.init_app(app)
 
-
 migrate = Migrate(app,database.db)
 
 app.register_blueprint(home_bp,url_prefix='/',name="home-red")

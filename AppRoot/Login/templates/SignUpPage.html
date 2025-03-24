@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
+{% extends "Base.html" %}
+
+{% block header %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignUp</title>
-</head>
-<body>
-    {% for msg in get_flashed_messages() %}
-    <h1>{{ msg }}</h1>
-    {% endfor %}
+{% endblock %}
 
+{% block content %}
     <h2>SignUp für Kursleiter Santis Training AG</h2>
     <h3>Please register</h3>
     
@@ -22,5 +19,4 @@
         <input type="password" id="repeatPassword" name="repeatPassword" required><br><br>
 	<input type="submit" value="Register">
     </form>
-</body>
-</html>
+{% endblock %}
