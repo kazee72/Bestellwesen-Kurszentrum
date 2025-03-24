@@ -115,5 +115,16 @@ nav ul li a:hover {
     background-color: #5a5a5a;
 }
 
+.flashes {
+    background-color:darkviolet;
+    font-size:20px;
+    padding:8px 12px;
+    border-radius:5px;
+    text-decoration:none;
+    opacity: 1;
+    transition: opacity ease-out 10s;
+    z-index:999;
+
+}
 
 
