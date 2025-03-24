@@ -17,8 +17,12 @@ def login():
             flask.session['id'] = userDb.uid #here we store a encrypted session cookie
             flask.session['username'] = username           
             flask.flash("user " + username +  " logged in")
+        else:
+            flask.flash("user " + username + "not logged in")
+    else:
+        flask.flash("user " + username + "not logged in")
 
-    return "here is login logic"
+    return redirect("/")
 
 def signUp():
     username = request.form.get('username')
@@ -47,4 +51,4 @@ def signUp():
            flash("password is invalid")
            return redirect(url_for('login_bp.signUpPage'))
 
-        return "some response"
+        return redirect("/login")

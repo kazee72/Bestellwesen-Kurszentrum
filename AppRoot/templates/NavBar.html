@@ -8,7 +8,7 @@
         <li><a href="/login">Login</a></li>
         <li><a href="/order">Order</a></li>
         {% if username is defined %}
-            <li class="login">Logged in as {{ username }}</li>
+        <li class="login">{{ username }}</li>
         {% else %}
             <li class="login"><a href="/login">Login</a></li>
             <li class="login"><a href="/login/signUp">Register</a></li>

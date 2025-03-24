@@ -25,3 +25,9 @@ def signUpPage():
         return auth.signUp()
     if request.method == 'GET':
         return render_template("SignUpPage.html")
+
+@login_bp.route("/logout")
+def logout():
+    flask.session.clear()
+    flask.flash("User logged out")
+    return redirect("/")

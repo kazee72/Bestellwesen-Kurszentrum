@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
+{% extends "Base.html" %}
+{% block header %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}"/>
     <title>Login</title>
-</head>
-<body>
-    {% include 'NavBar.html' %}
+{% endblock %}
 
-    <h3> this user is logged in as {{username}}</h3>
+{% block content %}
     <!-- Bild in der rechten oberen Ecke -->
     <div class="content">
         <h2>Login-Seite für Kursleiter Santis Training AG</h2>
@@ -23,5 +20,4 @@
             <a href="/forgot-password" class="forgot-password">Passwort vergessen</a> <!-- Hier der Link -->
         </form>
     </div>
-</body>
-</html>
+{% endblock %}
