@@ -121,7 +121,7 @@ nav ul li a:hover {
     padding:8px 12px;
     border-radius:5px;
     text-decoration:none;
-    opacity: 1;
+    opacity: 0;
     transition: opacity ease-out 10s;
     z-index:999;
 
