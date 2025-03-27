@@ -6,18 +6,3 @@
     <title>Login</title>
 {% endblock %}
 
-{% block content %}
-    <!-- Bild in der rechten oberen Ecke -->
-    <div class="content">
-        <h2>Login-Seite für Kursleiter Santis Training AG</h2>
-   
-        <form method="POST" action="/login">
-            <label for="username">Benutzername:</label><br>
-            <input type="text" id="username" name="username" required><br><br>
-            <label for="password">Passwort:</label><br>
-            <input type="password" id="password" name="password" required><br><br>
-            <input type="submit" value="Einloggen"><br><br>
-            <a href="/forgot-password" class="forgot-password">Passwort vergessen</a> <!-- Hier der Link -->
-        </form>
-    </div>
-{% endblock %}

@@ -7,16 +7,15 @@
 {% endblock %}
 
 {% block content %}
-    <h2>SignUp für Kursleiter Santis Training AG</h2>
-    <h3>Please register</h3>
+    <h2>Registrierung</h2>
     
-    <form method="POST" action="/login/signUp">
+    <form class="signupform" method="POST" action="/login/signUp">
         <label for="username">Benutzername:</label><br>
         <input type="text" id="username" name="username" required><br><br>
         <label for="password">Passwort:</label><br>
         <input type="password" id="password" name="password" required><br><br>
         <label for="repeatPassword">Passwort:</label><br>
         <input type="password" id="repeatPassword" name="repeatPassword" required><br><br>
-	<input type="submit" value="Register">
+	<input class="signupbutton" type="submit" value="Registrieren">
     </form>
 {% endblock %}

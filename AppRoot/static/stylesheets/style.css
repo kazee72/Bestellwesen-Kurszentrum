@@ -1,14 +1,20 @@
 
 body {
-    background-image: url('../schlosslenzburg.jpg');
     font-family: Arial, sans-serif;
+    height: 100%;
     margin: 0;
     padding: 0;
-    position: relative; /* Für das Bild-Positionierung */
-    background-size: cover; /* Bild anpassen, um den gesamten Bereich zu füllen */
-    background-position: center; /* Bild zentrieren */
-    background-repeat: no-repeat; /* Bild nicht wiederholen */
-    height: 100vh; /* Höhe auf 100% der Ansichtshöhe setzen */
+    background-image: url('../schlosslenzburg.jpg');
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .content {
@@ -35,36 +41,40 @@ input[type="text"], input[type="password"] {
 input[type="submit"] {
     padding: 10px 20px;
     margin-top: auto;
-    background-color: #07F74F;
+    background-color: #BCCCDC;
     color: rgb(0, 0, 0);
+    border-radius: 5px;
     border: none;
     cursor: pointer;
-    text-align: left;
+    text-align: left; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 input[type="submit"]:hover {
-    background-color: #00000000;
+    background-color: #9AA6B2;
+}
+.loginform {
+    margin: 20px;
+    z-index: 1;
 }
 
 .forgot-password {
     margin-top: -86px;
     text-align: left;
-    display: block; /* Damit der Link als Block angezeigt wird */
-    color: #007BFF; /* Linkfarbe */
-    text-decoration: none; /* Unterstreichung entfernen */
+    display: block;
+    color: #007BFF;
+    text-decoration: none;
 }
 
 .forgot-password:hover {
-    text-decoration: underline; /* Unterstreichung beim Hover */
+    text-decoration: underline;
 }
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #808080;
-    padding: 10px 20px;
-    /*position: fixed;*/
+    background-color: #BCCCDC;
     width: 100%;
     top: 0;
     left: 0;
@@ -77,10 +87,11 @@ input[type="submit"]:hover {
 nav ul {
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
+    margin: 10px;
+    padding: 10px;
     align-items: center;
-    width: 100%
+    width: 100%;
+    justify-content: space-between;
 }
 
 nav ul li.login{
@@ -90,9 +101,9 @@ nav ul li.login{
     font-size: 16px;
     font-weight: bold;
     transition: all 0.3s ease;
-    background-color: aqua;
     border-radius: 5px;
     align-items: center;
+    margin-left: auto;
     display: flex;
     height: 30px;
     padding: 8px 12px;
@@ -100,7 +111,7 @@ nav ul li.login{
 
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: #002046;
     font-size: 16px;
     font-weight: bold;
     padding: 8px 12px;
@@ -108,11 +119,11 @@ nav ul li a {
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    /*height: 60px;*/
 }
 
 nav ul li a:hover {
-    background-color: #5a5a5a;
+    background-color: #9AA6B2;
+    scale: 110%;
 }
 
 .flashes {

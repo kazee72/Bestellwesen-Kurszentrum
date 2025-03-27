@@ -5,14 +5,15 @@
     <ul>
         <li><a href="/"><img src={{ url_for('static',filename="santislogo.png") }} alt="Bild" class="home" height="30px"></a></li>
         <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/login">Login</a></li>
         <li><a href="/order">Order</a></li>
+    </ul>
+    <ul>
         {% if username is defined %}
         <li class="login">{{ username }}</li>
         <li class="login" ><a href="/login/logout">logout</a></li>
         {% else %}
             <li class="login"><a href="/login">Login</a></li>
-            <li class="login"><a href="/login/signUp">Register</a></li>
+            <li class="login"><a href="/login/signUp">Registrieren</a></li>
         {% endif %}
             
     </ul>

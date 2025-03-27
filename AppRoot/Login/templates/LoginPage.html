@@ -3,18 +3,17 @@
 {% block header %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}"/>
     <title>Login</title>
 {% endblock %}
 
-{% block content %}
-    <h2>Login-Seite für Kursleiter Santis Training AG</h2>
-    <h3>Dies ist eine Test seite die Der Hammer aussieht</h3>
-    
-    <form method="POST" action="/login">
+{% block content %} 
+    <form class="loginform" method="POST" action="/login">
+        <h2>Login</h2>
         <label for="username">Benutzername:</label><br>
         <input type="text" id="username" name="username" required><br><br>
         <label for="password">Passwort:</label><br>
         <input type="password" id="password" name="password" required><br><br>
-	<input type="submit" value="Einloggen">
+	    <input class="loginbutton" type="submit" value="Einloggen">
     </form>
 {% endblock %}
