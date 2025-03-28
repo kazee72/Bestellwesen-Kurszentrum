@@ -2,19 +2,18 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}"/>
 
 <nav class="navbar">
-    <ul>
+    <ul class="nav-left">
         <li><a href="/"><img src={{ url_for('static',filename="santislogo.png") }} alt="Bild" class="home" height="30px"></a></li>
         <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/order">Order</a></li>
+        <li><a href="/order">Bestellen</a></li>
     </ul>
-    <ul>
+    <ul class="nav-right">
         {% if username is defined %}
-        <li class="login">{{ username }}</li>
-        <li class="login" ><a href="/login/logout">logout</a></li>
+        <li>{{ username }}</li>
+        <li class="logout"><a href="/login/logout">Logout</a></li>
         {% else %}
-            <li class="login"><a href="/login">Login</a></li>
-            <li class="login"><a href="/login/signUp">Registrieren</a></li>
+        <li class="login"><a href="/login">Login</a></li>
+        <li class="signup"><a href="/signup">Registrieren</a></li>
         {% endif %}
-            
     </ul>
 </nav>

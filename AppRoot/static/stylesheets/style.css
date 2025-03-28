@@ -1,4 +1,5 @@
 
+
 body {
     font-family: Arial, sans-serif;
     height: 100%;
@@ -52,8 +53,15 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #9AA6B2;
+    scale: 110%;
+    transition: 0.3s ease;
 }
 .loginform {
+    margin: 20px;
+    z-index: 1;
+}
+
+.signupform {
     margin: 20px;
     z-index: 1;
 }
@@ -75,56 +83,61 @@ input[type="submit"]:hover {
     align-items: center;
     justify-content: space-between;
     background-color: #BCCCDC;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    height: 60px;
+    padding: 0 20px; /* Adds some spacing */
+    height: 80px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 10px;
-    padding: 10px;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-}
-
-nav ul li.login{
-    margin: 0 15px;
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border-radius: 5px;
-    align-items: center;
-    margin-left: auto;
-    display: flex;
-    height: 30px;
-    padding: 8px 12px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #002046;
+    color: white;
     font-size: 16px;
     font-weight: bold;
     padding: 8px 12px;
     border-radius: 5px;
     transition: all 0.3s ease;
+    align-items: center;
     display: flex;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
     align-items: center;
 }
 
-nav ul li a:hover {
+.nav-left {
+    gap: 30px;
+}
+
+.nav-right {
+    gap: 10px;
+    margin-left: auto;
+}
+
+.nav-left a:hover {
     background-color: #9AA6B2;
     scale: 110%;
 }
+
+.signup :hover {
+    background-color: #27548A;
+    scale: 110%;
+}
+
+.login :hover {
+    background-color: #91AC8F;
+    scale: 110%;
+}
+
+.logout :hover {
+    background-color: #BF3131;
+    scale: 110%;
+}
+
+
 
 .flashes {
     background-color:darkviolet;
@@ -137,5 +150,4 @@ nav ul li a:hover {
     z-index:999;
 
 }
-
 

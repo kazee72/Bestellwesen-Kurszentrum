@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 dashboard_bp = Blueprint('dashboard_bp',
                          __name__,
@@ -7,4 +7,4 @@ dashboard_bp = Blueprint('dashboard_bp',
 
 @dashboard_bp.route('/')
 def main_dashboard():
-    return "here will be the dashboard"
+    return render_template('dashboard_main.html')
