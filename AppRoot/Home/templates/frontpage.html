@@ -6,5 +6,11 @@
 {% endblock %}
 
 {% block content %}
-    <h2 class="welcome">Willkomen</h2>
+    <div class="homecontent">
+        {% if username is defined %}
+        <h1 class="welcome">Willkommen, {{ username }}</h1>
+        {% else %}
+        <h1 class="welcome">Willkommen, <a href="/login" class="link">melden Sie sich an</a> um fortzufahren.</h1>
+        {% endif %}
+    </div>
 {% endblock %}

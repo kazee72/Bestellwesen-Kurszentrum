@@ -16,15 +16,13 @@ body {
 
 * {
   box-sizing: border-box;
+  color: #002147;
+  font-weight: bold;
 }
 
 .content {
     margin-top: 120px;
     padding: 20px;
-}
-
-h2 {
-    color: #000000;
 }
 
 form {
@@ -90,7 +88,7 @@ input[type="submit"]:hover {
 
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: #002147;
     font-size: 16px;
     font-weight: bold;
     padding: 8px 12px;
@@ -117,27 +115,33 @@ nav ul li a {
     margin-left: auto;
 }
 
-.nav-left a:hover {
-    background-color: #9AA6B2;
-    scale: 110%;
-}
-
 .signup :hover {
-    background-color: #27548A;
+    background-color: #214066;
+    color: white;
     scale: 110%;
 }
 
 .login :hover {
     background-color: #91AC8F;
+    color: white;
     scale: 110%;
 }
 
 .logout :hover {
     background-color: #BF3131;
+    color: white;
     scale: 110%;
 }
 
+.textnav :hover {
+    background-color: #214066;
+    color: white;
+    scale: 110%;
+}
 
+.picnav :hover {
+    scale: 110%;
+}
 
 .flashes {
     background-color:darkviolet;
@@ -151,3 +155,22 @@ nav ul li a {
 
 }
 
+.welcome {
+    color: #002147;
+    text-align: center;
+    vertical-align: center;
+}
+
+.link {
+    color: #002147;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #5495ff;
+    text-decoration: underline;
+}
+
+.homecontent {
+    margin-top: 100px;
+}
