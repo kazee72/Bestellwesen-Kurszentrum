@@ -8,6 +8,7 @@ from AppRoot.Home.routes import home_bp
 from AppRoot.Dashboard.routes import dashboard_bp
 from AppRoot.Login.routes import login_bp
 from AppRoot.Order.routes import order_bp
+from AppRoot.Signup.routes import signup_bp
 
 from . import database
 from .Login import models
@@ -34,7 +35,8 @@ app.register_blueprint(home_bp,url_prefix='/',name="home-red")
 app.register_blueprint(home_bp,url_prefix='/home')
 app.register_blueprint(login_bp,url_prefix="/login")
 app.register_blueprint(dashboard_bp,url_prefix='/dashboard')
-app.register_blueprint(order_bp,url_prefix='/order')
+app.register_blueprint(order_bp, url_prefix='/order')
+app.register_blueprint(signup_bp, url_prefix='/signup')
 
 if __name__ == '__main__':
     app.run(debug=True)

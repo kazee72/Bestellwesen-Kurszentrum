@@ -2,22 +2,15 @@
 {% block header %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}"/>
-    <title>Login</title>
+    <title>Home</title>
 {% endblock %}
 
 {% block content %}
-    <!-- Bild in der rechten oberen Ecke -->
-    <div class="content">
-        <h2>Login-Seite für Kursleiter Santis Training AG</h2>
-   
-        <form method="POST" action="/login">
-            <label for="username">Benutzername:</label><br>
-            <input type="text" id="username" name="username" required><br><br>
-            <label for="password">Passwort:</label><br>
-            <input type="password" id="password" name="password" required><br><br>
-            <input type="submit" value="Einloggen"><br><br>
-            <a href="/forgot-password" class="forgot-password">Passwort vergessen</a> <!-- Hier der Link -->
-        </form>
+    <div class="homecontent">
+        {% if username is defined %}
+        <h1 class="welcome">Willkommen, {{ username }}</h1>
+        {% else %}
+        <h1 class="welcome">Willkommen, <a href="/login" class="link">melden Sie sich an</a> um fortzufahren.</h1>
+        {% endif %}
     </div>
 {% endblock %}

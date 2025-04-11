@@ -19,12 +19,6 @@ def loginPage():
         else:
             return render_template("LoginPage.html")
 
-@login_bp.route("/signUp",methods = ['POST','GET']) #remove the get here!!!
-def signUpPage():
-    if request.method == 'POST':
-        return auth.signUp()
-    if request.method == 'GET':
-        return render_template("SignUpPage.html")
 
 @login_bp.route("/logout",methods=['GET'])
 def logout():
