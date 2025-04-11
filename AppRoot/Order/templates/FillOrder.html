@@ -1,0 +1,16 @@
+{% extends "Base.html" %}
+
+{% block header %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+{% endblock %}
+
+{% block content %} 
+    <form class="OrderForm" method="POST" action="/Order">
+        <h2>Plase an Order</h2>
+        <label for="orderName">Order Name</label><br>
+        <input type="text" id="orderName" name="orderName" required><br><br>
+	    <input class="doOrder" type="submit" value="Add Item">
+    </form>
+{% endblock %}
