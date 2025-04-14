@@ -12,5 +12,10 @@
         <label for="orderName">Order Name</label><br>
         <input type="text" id="orderName" name="orderName" required/><br><br>
 	    <input class="doOrder" type="submit" value="Add Item"/>
+        <select name="item" id="item">
+            {% for item in items %}
+            <option value="{{item.name}}"></option>
+            {% endfor %}
+        </select>
     </form>
 {% endblock content %}
