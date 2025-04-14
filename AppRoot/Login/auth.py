@@ -6,6 +6,7 @@ from sqlalchemy import exc
 from AppRoot.Login import models
 from AppRoot import database
 from AppRoot.Utils import limits
+from AppRoot.app import logger
 
 def login():
     #login logic here
@@ -45,7 +46,7 @@ def signUp():
         else:
             if password == repeatPassword and len(password) > 10:
                 newUser = models.User(username=username, \
-                                      password=generate_password_hash(password,method="scrypt"),_type="Guest")
+                                      password=generate_password_hash(password,method="scrypt"),accessType="Guest")
                 with app.app.app_context():
                     database.db.session.add(newUser)
                     try:
@@ -64,4 +65,31 @@ def signUp():
     return redirect("/login")
 
 def checkUser():
-    pass
+    class Ret():
+        def __init__(self,logginStatus:bool,user:models.User,msg:str):
+            self.loggedIn: bool = logginStatus
+            self.user: models.User = user
+            self.msg: str = msg
+
+    if 'username' in flask.session:
+        logger.debug("Usercookie means its authenticated, check hashes: \n %s" \
+                ,flask.session['username'])
+        usernameSession = flask.session['username']
+        try:
+            userDb = models.User.query.filter_by(username=usernameSession).first()
+        except Exception as e:
+            logger.error("Problem reading user database: %s",e)
+            return Ret(False,None,"db error") 
+        else:
+            if userDb: #we found user now we check the id
+                userIdSession = flask.session['id']
+                if userIdSession:
+                    if userIdSession == userDb.uid:
+                        return Ret(True,userDb,"loggin succes")
+                else:
+                    return Ret(False,None,"invalid session cookie")
+            else:
+                return Ret(False,None,"invalid session cookie")
+    else:
+        return Ret(False,None,"invalid session cookie")
+

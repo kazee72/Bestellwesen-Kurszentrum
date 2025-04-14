@@ -1,6 +1,7 @@
 import flask
 from AppRoot.Order import models
 from AppRoot.app import logger
+from AppRoot.Login import auth
 
 order_bp = flask.Blueprint("order_bp",
                            __name__,
@@ -14,9 +15,12 @@ def index():
 @order_bp.route("/addOrder",methods=["GET","POST"])
 def addOrder():
 #check User login rights
-    itemlist = []
-    try:
-        itemList = models.ItemStore.query.all()
-    except Exception as e:
-        logger.error("Eerror at db call for itemstore:\n",e)
-    return flask.render_template(template_name_or_list="AddOrder.html",items=itemList)
+    loginCheck = auth.checkUser()
+    itemList = []
+    if loginCheck.loggedIn == True:
+        try:
+            itemList = models.ItemStore.query.all()
+        except Exception as e:
+            logger.error("Eerror at db call for itemstore:\n",e)
+        return flask.render_template(template_name_or_list="AddOrder.html",items=itemList)
+    return flask.Response("you dont seem to be logged in",401)
