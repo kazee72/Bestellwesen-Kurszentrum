@@ -37,7 +37,7 @@ input[type="text"], input[type="password"] {
     display: block;
 }
 
-input[type="submit"] {
+.pageButton{
     padding: 10px 20px;
     margin-top: auto;
     background-color: #BCCCDC;
@@ -49,7 +49,7 @@ input[type="submit"] {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-input[type="submit"]:hover {
+.pageButton:hover {
     background-color: #9AA6B2;
     scale: 110%;
     transition: 0.3s ease;
