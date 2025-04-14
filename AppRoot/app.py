@@ -1,7 +1,7 @@
-import sys
+import sys, os
 from dotenv import dotenv_values, load_dotenv
 
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_migrate import Migrate
 
 from AppRoot.Home.routes import home_bp
@@ -30,6 +30,10 @@ app.config["SQLALCHEMY_DATABASE_URI"] = f'sqlite:///{app.root_path}/db.sqlite'
 database.db.init_app(app)
 
 migrate = Migrate(app,database.db)
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 app.register_blueprint(home_bp,url_prefix='/',name="home-red")
 app.register_blueprint(home_bp,url_prefix='/home')

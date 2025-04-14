@@ -7,5 +7,8 @@ order_bp = Blueprint('order_bp',
                     static_folder="static")
 
 @order_bp.route('/')
-def order():        
-    return render_template("IndexOrders.html")
+def order():
+    if 'username' in flask.session:
+        return render_template("IndexOrders.html", username=flask.session['username'])
+    else:
+        return render_template("IndexOrders.html")

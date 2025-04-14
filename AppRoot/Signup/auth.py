@@ -14,7 +14,7 @@ def signUp():
     user = models.User.query.filter_by(username=username).first()
     if user:
        flash("this username is already taken")
-       return redirect(url_for('login_bp.signUpPage'))
+       return redirect(url_for('signup.signUpPage'))
     else:
         if password == repeatPassword and len(password) > 10:
             newUser = models.User(username=username,
@@ -31,6 +31,6 @@ def signUp():
                     flash("User successfull added")
         else:
            flash("password is invalid")
-           return redirect(url_for('login_bp.signUpPage'))
+           return redirect(url_for('signup_bp.signUpPage'))
 
-        return redirect("/login")
+       return redirect("/login")
