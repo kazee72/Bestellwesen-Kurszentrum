@@ -17,7 +17,7 @@ from AppRoot.Signup.routes import signup_bp
 from . import database
 from .Login import models
 
-
+logger.setLevel(logging.DEBUG)
 
 config = dotenv_values(".env")
 

@@ -14,7 +14,7 @@
 	    <input class="doOrder" type="submit" value="Add Item"/>
         <select name="item" id="item">
             {% for item in items %}
-            <option value="{{item.name}}"></option>
+            <option value="{{item.name}}">{{item.name}}</option>
             {% endfor %}
         </select>
     </form>

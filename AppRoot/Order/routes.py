@@ -17,4 +17,7 @@ def addOrder():
         itemList = models.ItemStore.query.all()
     except Exception as e:
         logger.error("Eerror at db call for itemstore:\n",e)
+    else:
+        for item in itemList:
+            logger.debug("itemlist: %s",item.name)
     return flask.render_template(template_name_or_list="AddOrder.html",items=itemList)
