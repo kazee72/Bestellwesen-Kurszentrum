@@ -62,3 +62,6 @@ def signUp():
     else:
         flash("Exceding lenght in Login-credentials")
     return redirect("/login")
+
+def checkUser():
+    pass
