@@ -1,12 +1,17 @@
 {% extends "Base.html" %}
 
+
+
 {% block header %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
+
 {% endblock header %}
 
 {% block content %} 
+
     <form class="OrderForm" method="POST" action="/Order">
         <h2>Plase an Order</h2>
         <label for="orderName">Order Name</label><br>
@@ -18,4 +23,32 @@
             {% endfor %}
         </select>
     </form>
+
+    <table class="table1">
+        <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>TotalCount</th>
+            <th>Available</th>
+            <th>ID</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.describtion}}</td>
+            <td>{{item.totalAmountOfKind}}</td>
+            <td>Not Implemented yet</td>
+            <td>
+                <form method="POST" action="/addItem">
+                    <input class="addItemButton"  type="submit" id="chooseItem" value="{{item.uid}}"/>
+                    <div id="countItem">
+                        <label>Count</label>
+                        <input type="number"/>
+                    </div>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
 {% endblock content %}

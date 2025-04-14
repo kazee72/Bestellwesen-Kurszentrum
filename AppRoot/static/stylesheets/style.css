@@ -174,3 +174,19 @@ nav ul li a {
 .homecontent {
     margin-top: 100px;
 }
+
+#countItem {
+    padding: 30px;
+    display: none;
+}
+
+#countItem:hover {
+    display:inline;
+}
+.addItemButton:hover + #countItem {
+    display: inline;
+}
+
+.table1 {
+    background-color: grey;
+}
