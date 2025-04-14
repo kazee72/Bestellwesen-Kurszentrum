@@ -4,6 +4,10 @@ from dotenv import dotenv_values, load_dotenv
 from flask import Flask, send_from_directory
 from flask_migrate import Migrate
 
+import logging
+logging.basicConfig(stream=sys.stdout,level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 from AppRoot.Home.routes import home_bp
 from AppRoot.Dashboard.routes import dashboard_bp
 from AppRoot.Login.routes import login_bp
@@ -13,9 +17,7 @@ from AppRoot.Signup.routes import signup_bp
 from . import database
 from .Login import models
 
-import logging
-logging.basicConfig(stream=sys.stdout,level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 config = dotenv_values(".env")
 
