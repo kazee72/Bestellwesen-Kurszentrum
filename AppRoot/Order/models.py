@@ -28,4 +28,3 @@ class Order(db.Model):
     orderName: Mapped[Optional[str]]
     orderNumber = db.Column(db.Integer,primary_key=True)
     items: Mapped[List["ItemOrder"]] = relationship() #list of ItemOrder
-

@@ -44,8 +44,8 @@ def signUp():
            return redirect(url_for('login_bp.signUpPage'))
         else:
             if password == repeatPassword and len(password) > 10:
-                newUser = models.User(username=username,
-                                      password=generate_password_hash(password,method="scrypt"))
+                newUser = models.User(username=username, \
+                                      password=generate_password_hash(password,method="scrypt"),_type="Guest")
                 with app.app.app_context():
                     database.db.session.add(newUser)
                     try:

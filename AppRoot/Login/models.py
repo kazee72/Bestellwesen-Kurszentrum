@@ -16,4 +16,5 @@ class User(userDb.Model):
     username = userDb.Column(userDb.String(100),unique=True)
     firstname = userDb.Column(userDb.String(100))
     lastname = userDb.Column(userDb.String(100))
+    _type = Mapped[str] # admin, User, Guest
     orders: Mapped[List["Order"]] = relationship()
