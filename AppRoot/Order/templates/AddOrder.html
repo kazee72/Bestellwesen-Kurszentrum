@@ -1,16 +1,32 @@
 {% extends "Base.html" %}
 
-
-
 {% block header %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
-
 {% endblock header %}
 
 {% block content %} 
+
+<script>
+    function postAddItemForm(form) {
+        formData = new FormData(form);
+        const response = fetch("/Order/addOrder",{
+            method: "POST",
+            body: formData,
+        })};
+
+    document.addEventListener("DOMContentLoaded",function(e) {
+
+        {% for item in items %}
+        form = document.getElementById("form-{{item.uid}}");
+        form.addEventListener("submit",(e) => {
+            e.preventDefault();
+            postAddItemForm().bind(this,form);
+        });
+        {% endfor %}
+    });
+</script>
 
     <form class="OrderForm" method="POST" action="/Order">
         <h2>Plase an Order</h2>
@@ -19,7 +35,7 @@
 	    <input class="doOrder" type="submit" value="Add Item"/>
         <select name="item" id="item">
             {% for item in items %}
-            <option value="{{item.name}}">{{item.name}}</option>
+                <option value="{{item.name}}">{{item.name}}</option>
             {% endfor %}
         </select>
     </form>
@@ -39,7 +55,7 @@
             <td>{{item.totalAmountOfKind}}</td>
             <td>Not Implemented yet</td>
             <td>
-                <form method="POST" action="/addItem">
+                <form id="form-{{item.uid}}" method="POST" action="/addItem-asdfdf">
                     <input class="addItemButton"  type="submit" id="chooseItem" value="{{item.uid}}"/>
                     <div id="countItem">
                         <label>Count</label>
