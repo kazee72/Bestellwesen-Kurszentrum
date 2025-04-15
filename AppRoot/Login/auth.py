@@ -49,7 +49,8 @@ def signUp():
             else:
                 if password == repeatPassword and len(password) > 10:
                     newUser = models.User(username=username, \
-                                          password=generate_password_hash(password,method="scrypt"),accessType="Guest")
+                                          password=generate_password_hash(password,method="scrypt") \
+                                          ,accessType="Guest")
                     with app.app.app_context():
                         database.db.session.add(newUser)
                         try:

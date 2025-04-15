@@ -183,10 +183,31 @@ nav ul li a {
 #countItem:hover {
     display:inline;
 }
+
 .addItemButton:hover + #countItem {
     display: inline;
+}
+table, th, td {
+    border: 1px solid brown;
 }
 
 .table1 {
     background-color: grey;
 }
+
+.popup {
+    display:none;
+    position:fixed;
+    padding:10px;
+    width:300px;
+    height:150px;
+    left:50%;
+    margin-left:-150px;
+    top:50%;
+    margin-top:-150px;
+    background: green;
+    z-index: 10;
+    border-radius:10px;
+
+}
+

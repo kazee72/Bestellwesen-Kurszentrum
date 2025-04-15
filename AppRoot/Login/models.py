@@ -2,7 +2,8 @@
 from __future__ import annotations
 from typing import List
 
-from sqlalchemy.orm import relationship
+from sqlalchemy import String
+from sqlalchemy.orm import mapped_column, relationship
 from sqlalchemy.orm import Mapped
 from ..database import db as userDb
 from AppRoot.Order.models import Order
@@ -16,5 +17,6 @@ class User(userDb.Model):
     username = userDb.Column(userDb.String(100),unique=True)
     firstname = userDb.Column(userDb.String(100))
     lastname = userDb.Column(userDb.String(100))
-    accessType = Mapped[str] # admin, User, Guest
-    orders: Mapped[List["Order"]] = relationship()
+
+    accessType : Mapped[str] = mapped_column(String(10))# admin, User, Guest
+    orders: Mapped[List["Order"]] = relationship("Order")
