@@ -1,0 +1,116 @@
+{% extends "Base.html" %}
+
+{% block header %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Interface</title>
+{% endblock %}
+
+{% block content %}
+<script>
+    let entities = new Array();
+    document.addEventListener("DOMContentLoaded",function (e) {
+
+        window.onclick = function(e) {
+            let popup = document.getElementById("editEntry");
+            console.log("event-target:",e.target,"popup",popup)
+            if(e.target == popup) {
+               popup.style.display = "none";
+            }
+        }
+
+        function editPopup(entity) {
+            let popup = document.getElementById("editEntry");
+            popup.style.display = "block";
+            insertTableData(entity);
+        }
+        function insertTableData(entity) {
+            console.log("parent:",entity.parentNode.parentNode);
+            id = entity.parentNode.parentNode.children[0].innerText;
+            name = entity.parentNode.parentNode.children[1].innerText;
+            describtion = entity.parentNode.parentNode.children[2].innerText;
+            total = entity.parentNode.parentNode.children[3].innerText;
+            
+            console.log("id:",id,"name:",name,"describtion:",describtion,"total:",total);
+
+            editEntry = document.getElementById("editEntry");
+            fieldName = document.getElementById("editName");
+            fieldDescribtion = document.getElementById("editDescr");
+            fieldTotal = document.getElementById("editTotal");
+
+            fieldName.value = name;
+            fieldDescribtion.value = describtion;
+            fieldTotal.value = total;
+        }
+        function postEditOne() {
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST","");
+            xhr.setRequestHeader("Content-Type","application/json");
+            const body = JSON.stringify({
+                operation: "ChangeEntity",
+                id: id,
+                name: fieldName.value,
+                describtion: fieldDescribtion.value,
+                total: fieldTotal.value
+            });
+            xhr.onload = () => {
+                console.log(JSON.parse(xhr.responseText));
+            };
+            xhr.send(body);
+        }
+        saveButton = document.getElementById("save");
+        saveButton.addEventListener("click",function(e){
+            postEditOne();
+        })
+
+        {%for item in items %}
+            entities.push(document.getElementById("edit-{{item.uid}}"));
+        {% endfor %}
+        for ( let i=0; i < entities.length;i++)
+        {
+            entities[i].addEventListener("click",function (e) {
+                //e.preventDefault();
+                editPopup(entities[i]);
+            });
+        }
+    });
+</script>
+
+<table id="ItemStore">
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>describtion</th>
+        <th>totalAmountOfKind</th>
+    </tr>
+    {% for item in items %}
+    <tr>
+        <td>{{item.uid}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.describtion}}</td>
+        <td>{{item.totalAmountOfKind}}</td>
+        <td><button type="button" id="edit-{{item.uid}}">Edit Item</button> </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div class="popup" id="editEntry">
+    <table>
+        <tr>
+            <td>Item name</td>
+            <td>Item Description</td>
+            <td>Item Total in stock</td>
+        </tr>
+        <tr>
+            <form type="submit" value="Save" action="/">
+                <td><input id="editName" type="text"/></td>
+                <td><input id="editDescr" type="text"/></td>
+                <td><input id="editTotal" type="number"/></td>
+                <input id="save" type="button" value="Save"></input>
+            </form> 
+        </tr>
+    </table>
+</div>
+
+
+{% endblock content %}
