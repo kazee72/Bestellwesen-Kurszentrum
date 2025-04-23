@@ -7,15 +7,17 @@
 {% endblock %}
 
 {% block content %}
-    <form class="signupform" method="POST" action="/signup/">
-        <h2>Registrierung</h2>
-        <label for="username">Benutzername:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Passwort:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-        <label for="repeatPassword">Passwort wiederholen:</label><br>
-        <input type="password" id="repeatPassword" name="repeatPassword" required><br><br>
-        <p>Sie besitzten einen Account? <a href="/login" class="link">Login</a></p>
-	    <input class="pageButton" type="submit" value="Registrieren">
-    </form>
+    <div class="centeredContainer">
+        <form class="signupform" method="POST" action="/signup/">
+            <h2 class="title">Registrierung</h2>
+            <label for="username">Benutzername:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Passwort:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <label for="repeatPassword">Passwort wiederholen:</label><br>
+            <input type="password" id="repeatPassword" name="repeatPassword" required><br><br>
+            <p>Sie besitzten einen Account? <a href="/login" class="link">Login</a></p>
+	        <input class="pageButton" type="submit" value="Registrieren">
+        </form>
+    </div>
 {% endblock %}

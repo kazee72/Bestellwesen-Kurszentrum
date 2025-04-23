@@ -40,6 +40,8 @@ input[type="text"], input[type="password"] {
 .pageButton{
     padding: 10px 20px;
     margin-top: auto;
+    margin: 0 auto;
+    display: block;
     background-color: #BCCCDC;
     color: rgb(0, 0, 0);
     border-radius: 5px;
@@ -52,10 +54,10 @@ input[type="text"], input[type="password"] {
 .pageButton:hover {
     background-color: #9AA6B2;
     scale: 110%;
+    cursor: pointer;
     transition: 0.3s ease;
 }
 .loginform {
-    margin: 20px;
     z-index: 1;
 }
 
@@ -84,6 +86,14 @@ input[type="text"], input[type="password"] {
     padding: 0 20px; /* Adds some spacing */
     height: 80px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+}
+
+.pageButton {
+    align-self: center;
 }
 
 nav ul li a {
@@ -163,12 +173,11 @@ nav ul li a {
 
 .link {
     color: #002147;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .link:hover {
     color: #5495ff;
-    text-decoration: underline;
 }
 
 .homecontent {
@@ -190,3 +199,10 @@ nav ul li a {
 .table1 {
     background-color: grey;
 }
+
+.centeredContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

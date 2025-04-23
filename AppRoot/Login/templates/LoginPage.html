@@ -6,9 +6,10 @@
     <title>Login</title>
 {% endblock %}
 
-{% block content %} 
+{% block content %}
+    <div class="centeredContainer">
     <form class="loginform" method="POST" action="/login">
-        <h2>Login</h2>
+        <h2 class="title">Login</h2>
         <label for="username">Benutzername:</label><br>
         <input type="text" id="username" name="username" required><br><br>
         <label for="password">Passwort:</label><br>
@@ -16,4 +17,5 @@
         <p>Kein Account? <a href="/signup" class="link">Registrieren</a></p>
 	    <input class="pageButton" type="submit" value="Login">
     </form>
+    </div>
 {% endblock %}

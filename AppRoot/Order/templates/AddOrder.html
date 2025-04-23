@@ -5,16 +5,16 @@
 {% block header %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Bestellung</title>
 
 
 {% endblock header %}
 
 {% block content %} 
-
+    <div class="centeredContainer">
     <form class="OrderForm" method="POST" action="/Order">
-        <h2>Plase an Order</h2>
-        <label for="orderName">Order Name</label><br>
+        <h2>Bestellung Aufgeben</h2>
+        <label for="orderName">Name der Bestellung</label><br>
         <input type="text" id="orderName" name="orderName" required/><br><br>
 	    <input class="doOrder" type="submit" value="Add Item"/>
         <select name="item" id="item">
@@ -22,8 +22,6 @@
             <option value="{{item.name}}">{{item.name}}</option>
             {% endfor %}
         </select>
-    </form>
-
     <table class="table1">
         <tr>
             <th>Item</th>
@@ -49,6 +47,7 @@
             </td>
         </tr>
         {% endfor %}
-        
     </table>
+    </form>
+    </div>
 {% endblock content %}
